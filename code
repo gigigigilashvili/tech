@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#532B03"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="71dp"
+        android:layout_height="47dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.205"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.342">
+
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="70dp"
+            android:layout_height="44dp"
+            android:ems="10"
+            android:hint="AB"
+            android:textAllCaps="true"
+            android:maxLength="2"
+            android:inputType="textPersonName"
+            android:textColor="#BAB4B4"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="70dp"
+        android:layout_height="44dp"
+        android:ems="10"
+        android:hint="AB"
+        android:textAllCaps="true"
+        android:maxLength="2"
+        android:inputType="textPersonName"
+        android:textColor="#BAB4B4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.756"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.344"
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/editTextNumber2"
+        android:layout_width="70dp"
+        android:layout_height="44dp"
+        android:ems="10"
+        android:hint="001"
+        android:maxLength="3"
+        android:inputType="number"
+        android:textColor="#BAB4B4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.344"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="275dp"
+        android:layout_height="46dp"
+        android:gravity="center"
+        android:text="ტექ ინსპექტირება"
+        android:textColor="#FAF7F7"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.204" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#05850A"
+        android:text="შემოწმება"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.612" />
+
+    <EditText
+        android:id="@+id/editTextNumber3"
+        android:layout_width="284dp"
+        android:layout_height="41dp"
+        android:hint="ტექ ინსპექტირების ნომერი"
+        android:maxLength="9"
+        android:ems="10"
+        android:inputType="number"
+        android:textColor="#918D8D"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.473"
+        tools:ignore="TouchTargetSizeCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+package com.example.techinspect
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+
+class MainActivity : AppCompatActivity() {
+    private lateinit var confirmButton: Button
+    private lateinit var techWord: EditText
+    private lateinit var techWord2: EditText
+    private lateinit var techNum: EditText
+    private lateinit var techNumber: EditText
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        confirmButton = findViewById(R.id.button)
+        techWord = findViewById(R.id.editTextTextPersonName2)
+        techWord2 = findViewById(R.id.editTextTextPersonName3)
+        techNum = findViewById(R.id.editTextNumber2)
+        techNumber = findViewById(R.id.editTextNumber3)
+
+        confirmButton.setOnClickListener(){
+            val techword = techWord.text.toString()
+            val techword2 = techWord2.text.toString()
+            val technum = techNum.text.toString()
+            val technumber = techNumber.text.toString()
+
+
+            if (techword.contains("[a-z]".toRegex()))
+                if(techword2.contains("[a-z]".toRegex()))
+                    if(technum.contains("[0-9]".toRegex()))
+                        if(technumber.contains(("[0-9]".toRegex())))
+                            Toast.makeText(applicationContext,"თქვენ გავლილი გაქვთ ტექ დათვალიერება",Toast.LENGTH_LONG).show()
+        }
+
+
+
+        }
+    }
